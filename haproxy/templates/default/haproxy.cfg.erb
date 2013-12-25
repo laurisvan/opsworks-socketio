@@ -48,7 +48,9 @@ listen application 0.0.0.0:80
 
 <% if !node[:haproxy][:nodejs_backends].empty? -%>
 backend nodejs_app_servers
-  balance <%= node[:haproxy][:balance] %>
+  # Balancing needs to be forced to 'source' to have IP stickiness
+  #balance <%= node[:haproxy][:balance] %>
+  balanace source
   # Socket.io specifics
   timeout queue 5000
    # socket.io specifics end
