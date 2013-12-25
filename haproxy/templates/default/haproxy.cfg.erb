@@ -50,7 +50,7 @@ listen application 0.0.0.0:80
 backend nodejs_app_servers
   # Balancing needs to be forced to 'source' to have IP stickiness
   #balance <%= node[:haproxy][:balance] %>
-  balanace source
+  balance source
   # Socket.io specifics
   timeout queue 5000
    # socket.io specifics end
